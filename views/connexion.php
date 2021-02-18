@@ -1,7 +1,3 @@
-<?php include('views\templates\header.php'); ?>
-
-<?php include('views\templates\navbar.php') ?>
-
     <!-- Fullscreen Video Background -->
     <div class="container" id="myVideo">
         <div class="row justify-content-center">
@@ -12,35 +8,19 @@
             <div>
                 <div class="col-lg-12" id="contentOnVideo">
                     <h2>Bienvenue</h2>
-                    <form action="" method="POST">
+                    <form>
                         <!-- Pseudo -->
                         <div class="form-group">
-                            <label for="pseudo ">Pseudo :</label>
-                            <input id='pseudo' name="pseudo" type="text" class="form-control" required autofocus>
-                            <div id="firstname_error" class="form-text"><?= $errorsArray['firstname_error'] ?? ''?></div>
-                        </div>
-
-                        <!-- Mail -->
-                        <div class="form-group">
-                            <label for="mail ">Mail :</label>
-                            <input id='mail' name="mail" type="text" class="form-control" required>
-                            <div id="firstname_error" class="form-text"><?= $errorsArray['firstname_error'] ?? ''?></div>
+                            <label for="Pseudo ">Pseudo :</label>
+                            <input id='Pseudo' name="Pseudo" type="text" class="form-control" required autofocus>
+                            <span id="ErrorPseudo"></span>
                         </div>
 
                         <!-- Password -->
                         <div class="form-group">
                             <label for="Password">Mot de passe :</label>
-                            <input id='Password' name="Pseudo" type="password" class="form-control" required>
-                            <div id="firstname_error" class="form-text"><?= $errorsArray['firstname_error'] ?? ''?></div>
-                        </div>
-
-                        <!-- ConfirmPassword -->
-                        <div class="form-group">
-                            <label for="confirmPassword ">Confirmation du mot de passe :</label>
-                            <input id='confirmPassword' name="confirmPassword" type="password" class="form-control"
-                                required>
-                            <div id="firstname_error" class="form-text"><?= $errorsArray['firstname_error'] ?? ''?></div>
-                            
+                            <input id='Password' name="Pseudo" type="text" class="form-control" required>
+                            <span id="ErrorPassword"></span>
                         </div>
                     </form>
                     <div id="contentVideoButton">
@@ -48,7 +28,7 @@
                         <button class="btn btn-info" type="submit">Connexion</button>
                     </div>
                     <div id="contentVideo">
-                        <p>Déjà inscrit ? Connecter vous juste <a href="connexion.html">ici</a>.</p>
+                        <p>Pas encore inscrit ? Créer vous un compte <a href="inscription.html">ici</a>.</p>
                     </div>
                 </div>
             </div>
@@ -88,6 +68,8 @@
                         <div id="divInscriptionConnexion">
                             <ul class="d-flex">
                                 <li> <button type="button" class="btn btn-dark btn-lg">Se connecter</button></li>
+                                <!-- A vérifier -->
+                                <li> <a href="#"><img src="assets/img/sinscrire.png" alt="S'inscrire"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -96,6 +78,4 @@
         </div>
     </div>
     </div>
-
-<?php include('views\templates\footer.php'); ?>
 

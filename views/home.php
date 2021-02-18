@@ -1,7 +1,3 @@
-<?php include('views\templates\header.php'); ?>
-
-<?php include('views\templates\navbar.php') ?>
-
             <!-- Fullscreen Video Background -->
             <div class="container-fluid px-0" id="myVideo">
                 <div class="row">
@@ -383,4 +379,3 @@
                             </ul>
                         </div> -->
 
-<?php include('views\templates\navbar.php') ?>

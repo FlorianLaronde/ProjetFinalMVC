@@ -1,7 +1,3 @@
-<?php include('views\templates\header.php'); ?>
-
-<?php include('views\templates\navbar.php') ?>
-
     <!-- Fullscreen Video Background -->
     <div class="container px-0" id="myVideo">
         <video autoplay muted loop class="position-fixed">
@@ -54,4 +50,3 @@
         </div>
     </div>
 
-<?php include('views\templates\footer.php'); ?>
