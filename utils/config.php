@@ -1,8 +1,9 @@
 <?php 
 
 // connexion à la bdd
-    $dsn = 'mysql:host=localhost;dbname=hospitale2n';
-    $login = 'user_hospitale2n';
-    $password = 'PjgOLvantERp1Gsl';
+
+define('DSN', 'mysql:host=localhost;dbname=projet_lamanu');
+define('LOGIN', 'florian_admin');
+define('PASSWORD', 'florian');
 
 ?>

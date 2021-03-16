@@ -12,7 +12,7 @@ CREATE TABLE `users`(
         `pseudo`    Varchar (50) NOT NULL ,
         `mail`      Varchar (255) NOT NULL ,
         `password`  Char (60) NOT NULL ,
-        `admin`     Bool NOT NULL ,
+        `admin`     Boolean NOT NULL ,
         `userActif` TinyINT NOT NULL
 	,CONSTRAINT users_PK PRIMARY KEY (`id_users`)
 )ENGINE=InnoDB;

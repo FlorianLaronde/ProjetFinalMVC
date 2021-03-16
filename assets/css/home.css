@@ -1,0 +1,487 @@
+/* General style */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    box-sizing: border-box;
+    list-style: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color :white !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* ******************************************************************** */
+
+/* Fullscreen Video Background */
+/* Div englobant ma video */
+#myVideo {
+    width: 100%;
+    /* height: 100vh; */
+    /* Relative to 1% of the height of the viewport */
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+/* Ma vidéo */
+#myVideo video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    /*définit la façon dont le contenu d'un élément remplacé doit s'adapter à son conteneur en utilisant sa largeur et sa hauteur */
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Le contenu sur ma vidéo */
+#myVideo #contentOnVideo {
+    z-index: 1;
+    /* centrer une div */
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+
+/* Mes divs avec tout le contenu d'une grande ou sous partie */
+.divByPart {
+margin-top: 5%;
+margin-bottom: 5%;
+
+}
+
+.whiteDivs {
+    /* margin-top: 5%;
+    margin-bottom: 5%; */
+    background-color: black;
+    /* border: 10px double white; */
+    /* border-radius: 15px 15px 15px 15px; */
+}
+
+.whiteDivs p {
+    color: white;
+    font-size: 1.2rem; 
+    opacity: 0.6;
+    mix-blend-mode: screen; 
+}
+
+/* Title */
+.heading {
+    font-size: 10vw;
+    text-shadow: 4px 4px 0px #3F7FBF;
+    mix-blend-mode: screen;
+    animation: fadeIn 2.5s linear forwards;
+  }
+  
+  @keyframes fadeIn {
+      0% {
+          opacity: 0
+      }
+  
+      100% {
+          opacity: 1;
+      }
+  }
+
+
+/* Animation de mes paragraphes/photos de gauche à droite */
+.slideInLeft {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes slideInLeft {
+    0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    }
+    @keyframes slideInLeft {
+    0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    } 
+
+/* Animation de mes paragraphes/photos de droite à gauche */
+    .slideInRight {
+        -webkit-animation-name: slideInRight;
+        animation-name: slideInRight;
+        -webkit-animation-duration: 2s;
+        animation-duration: 2s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        }
+        @-webkit-keyframes slideInRight {
+        0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        visibility: visible;
+        }
+        100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        }
+        }
+        @keyframes slideInRight {
+        0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        visibility: visible;
+        }
+        100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        }
+        } 
+
+
+/* ****************************************************************** */
+
+/* Navbar */
+#navbar {
+    height: auto;
+    width: 100%;
+    transition: top 0.8s; 
+}
+
+#divInscriptionConnexion {
+    position: absolute;
+    top: 20%;
+    right: 1%;
+    height: 60%;
+}
+
+#divInscriptionConnexion ul li button {
+    color: #DEE85E;
+    text-shadow: 2px 2px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+/* Lien Navbar */
+#navbar a {
+    margin-left: 50px;
+    color: #DEE85E !important;
+    font-size: 18px;
+    text-shadow: 2px 2px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    transform: scale(1.0);
+    transition-duration: 500ms;
+}
+
+#navbar a:hover {
+    transform: scale(1.2);
+    transition-duration: 500ms;
+}
+
+/* *********************************************************** */
+
+/* Logo Horloge Navbar */
+/* Cadran horloge */
+/* Elle dirige le margin top de l'horloge et des liens  */
+#clock {
+    width: 5rem;
+    height: 5rem;
+    border: 2px solid yellow;
+    border-radius: 50%;
+    position: relative;
+    box-shadow:
+    0 0 0 4px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 3px #EFEFEF,
+    inset 0 0 10px black,
+    0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* inside horloge */
+#clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/LogoNavbar.jpg);
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50px;
+}
+
+/* Aiguilles horloge */
+.hand {
+    width: 50%;
+    height: 2px;
+    background: yellow;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    /* permet de modifier l'origine du repère pour les opérations de transformation d'un élément */
+    transform: rotate(90deg);
+}
+
+
+/* ************************************************************************* */
+
+/* Caroussel */
+#myCaroussel {
+    height: 100%;
+}
+
+
+
+
+/* ********************************************************************************** */
+/* Footer */
+
+footer {
+    opacity: 0.5;
+    position: absolute;
+    width: 100%;
+}
+.site-footer {
+  background-color:#eee;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+}
+
+.site-footer hr{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+
+.site-footer hr.small{
+  margin:20px 0
+}
+
+.site-footer h5{
+  text-decoration: underline;
+  color:#737373;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+
+.site-footer a{
+  color:#737373;
+}
+
+.site-footer a:hover{
+  color:#3366cc;
+  text-decoration:none;
+}
+
+.footer-links{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li{
+  display:block
+}
+
+.footer-links a{
+  color:#737373
+}
+
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover{
+  color:#3366cc;
+  text-decoration:none;
+}
+
+.footer-links.inline li{
+  display:inline-block
+}
+
+.site-footer .social-icons{
+  text-align:right
+}
+
+.site-footer .social-icons a{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+
+.copyright-text{
+  margin:0
+}
+
+@media (max-width:991px){
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+
+@media (max-width:767px){
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+
+.social-icons{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+
+.social-icons li{
+  display:inline-block;
+  margin-bottom:4px
+}
+
+.social-icons li.title{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover{
+  color:#fff;
+  background-color:#29aafe
+}
+
+.social-icons.size-sm a{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+
+.social-icons a.facebook:hover{
+  background-color:#3b5998
+}
+
+.social-icons a.twitter:hover{
+  background-color:#00aced
+}
+
+.social-icons a.linkedin:hover{
+  background-color:#007bb6
+}
+
+.social-icons a.dribbble:hover{
+  background-color:#ea4c89
+}
+
+@media (max-width:767px){
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+
+ 
+/* ************************************************************************************** */
+/* Animation Sun Moon Terre */
+  .media {
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    position: absolute;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  figure {
+    height: 370px;
+    overflow: hidden;
+    position: relative;
+  }
+  figure a {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+  }
+  figure:hover .media {
+    transform: scale(1.25);
+  }
+  figcaption {
+    color: #252830;
+    height: calc(100% - 30px);
+    margin: 15px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 250px;
+  }
+  .body {
+    background-color: white;
+    bottom: 0;
+    padding: 15px;
+    position: absolute;
+    width: 100%;
+  }
+  svg {
+    height: inherit;
+    width: 100%;
+  }
+  svg text {
+    text-anchor: middle;
+  }
+  svg #alpha {
+    fill: white;
+  }
+  svg .title {
+    font-size: 28px;
+    font-family: "Montserrat";
+    letter-spacing: 5px;
+  }
+  svg #base {
+    fill: white;
+    -webkit-mask: url(#mask);
+    mask: url(#mask);
+  }
+
+
+

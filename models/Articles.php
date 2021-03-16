@@ -12,7 +12,7 @@ class News {
         // $this->_id = $id;
         $this->_title = $title;
         $this->_paragraphs = $paragraphs;
-        $this->_pdo = Database::connect();
+        $this->_pdo = Database::getInstance();
         
     }
 
