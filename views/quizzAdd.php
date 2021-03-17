@@ -11,27 +11,40 @@
                 <div class="text-center">
                     <h2>Créer un nouveau quizz</h2>
 
-                        <form method="POST" action="">
 
-                            <label for="title">Choisissez un titre</label>
-                            <input name="title" id="title" type="text" class="form-control" pattern="[A-Za-z-éèêëàâäôöûüç' ]+">
 
-                            <label class="form-label" for="idQuizz"></label>
-                            <select class="form-control mb-4" name="idQuizz" id="idQuizz" required>
-                                <option selected>Choisissez un thème du quizz</option>
+                        <form action="" method="POST">
+                            <!-- Pseudo -->
+                            <div class="form-group">
+                                <label for="id_quizzTheme"></label>
+                                <select class="form-control mb-4" name="id_quizzTheme" id="id_quizzTheme" required>
+                                    <option selected>Choisissez un thème du quizz</option>
 
-                                <?php foreach($allQuizzTheme as $newquizz) {?>
+                                    <?php foreach($allQuizzTheme as $newquizz) {?>
 
-                                <option value="<?=$newquizz->id?>">    <?=$newquizz->themes?></option>
+                                    <option value="<?=$newquizz->id_quizzTheme?>">    <?=$newquizz->themes?></option>
+                                    
+                                    <?php } ?>
+
+                                </select>
+                                    <div id="idQuizz_error" class="form-text"><?= $errorsArray['idQuizz_error'] ?? ''?></div>
+                            </div>
+
+                            <!-- Mail -->
+                            <div class="form-group">
+                                <label for="title">Choisissez un titre</label>
+                                <input name="title" id="title" type="text" class="form-control" pattern="[A-Za-z-éèêëàâäôöûüç' ]+">
+                                <div id="title_error" class="form-text"><?= $errorsArray['title_error'] ?? ''?></div>
+                            </div>
+
+                    
                                 
-                                <?php } ?>
+                            </div>
 
-                            </select>
-                            <div id="idPatients_error" class="form-text"><?= $errorsArray['idPatients_error'] ?? ''?></div>
-                        
-                            <a href="" class="btn btn-info" type="submit">Créer mon quizz</a>
 
-                        </form>
+                            <button class="btn btn-info" type="submit">Créer mon quizz</button>
+                  
+                    </form>
                 </div>
             </div>
         </div>

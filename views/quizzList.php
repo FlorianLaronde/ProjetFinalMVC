@@ -1,47 +1,49 @@
     <!-- Fullscreen Video Background -->
     <div class="container" id="myVideo">
-            <video autoplay muted loop class="position-fixed">
+            <!-- <video autoplay muted loop class="position-fixed">
                 <source src="/assets/img/BackgroundVideo/myVideo.mp4" type="video/mp4">
-            </video>
+            </video> -->
             <!-- Contenu sur ma vidéo -->
                 <div class="col-12" id="contentOnVideo">
 
-                    <h2 class="text-center">Quizz</h2>
-                    <table class="table mb-5">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Quizz</th>
-                                <th scope="col">Modifier</th>                             
-                                <th scope="col">Supprimer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <h2 class="text-center">Quizz</h2>
 
-                            <?php 
-                            $i=0;
-                            foreach($recupQuizzTheme as $quizz) { $i++; ?>
-                            
+                    <form action="" method="POST">
+                        <table class="table mb-5">
+                            <thead>
                                 <tr>
-                                    <th scope="row"><?=$i?></th>
-                                    <td><?=htmlentities($quizz->themes)?></td>
-                                    <td><a href="/controllers/list-appointmentCtrl.php?id=<?=$quizz->id?>"><i class="icon-cogs"></i></a></td>
-                                    <td><a href="/controllers/quizzAddCtrl.php?id=<?=$quizz->id?>"><i class="icon-remove-sign"></i></a></td>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Quizz</th>
+                                    <th scope="col">Ajouter question(s)</th>
+                                    <th scope="col">Modifier</th>                      
+                                    <th scope="col">Supprimer</th>
                                 </tr>
+                            </thead>
+                            <tbody>
 
-                            <?php } ?>
+                                <?php $i=0; foreach($recupQuizzTitle as $quizz) { $i++; ?>
+                                    
+                                    <tr>
+                                        <th scope="row"><?=$i?></th>
+                                        <td><?=htmlentities($quizz->title)?>(<!-- <?php $recupQuizzTheme->themes ?> -->)</td>
+                                        <td class="text-center"><a href="/controllers/quizzAddQuestionCtrl.php?id_quizz=<?=$quizz->id_quizz?>"><i class="icon-plus"></i></a></td>
+                                        <td class="text-center"><a href="/controllers/quizzAddQuestionCtrl.php?id=<?=$quizz->title?>"><i class="icon-cogs"></i></a></td>
+                                        <td>  <a href="/controllers/deleteQuizzCtrl.php?id_quizz=<?=htmlentities($quizz->id_quizz)?>" ><i class="icon-remove-sign"></i></a></td>
+                                    </tr> -->
+
+                                <?php } ?>
 
 
-                        </tbody>
-                        <tfoot>
+                            </tbody>
+                            <tfoot>
 
-                                <tr>
-                                    <td></td>
-                                    <td> <a type="button" href="/controllers/quizzAddCtrl.php">Créer un nouveau quizz</a></td>
-                                </tr>
-                        </tfoot>
-                    </table>
-
+                                    <tr>
+                                        <td></td>
+                                        <td> <a class="btn btn-info" type="button" href="/controllers/quizzAddCtrl.php">Créer un nouveau quizz</a></td>
+                                    </tr>
+                            </tfoot>
+                        </table>
+                    </form>
       
             </div> 
     </div>

@@ -54,12 +54,17 @@ class Quizztheme {
 
      // Suppression d'un quizz selon un id
      public function deleteQuizz($id){
-        $sql = 'DELETE from `quizztheme` WHERE `id` = :id;';
+         var_dump($id);
+         die;
+        $sql = 'DELETE from `quizztheme` WHERE `id_quizzTheme` = :id;';
         $stmt = $this->_pdo->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        return ($stmt->execute());
+        if($stmt->execute()){
+            return $this->_pdo->lastInsertId();
+        } else {
+            return false;
+        }
     }
-
 
     public static function getAll(){
 

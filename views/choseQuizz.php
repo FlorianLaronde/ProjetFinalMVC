@@ -10,15 +10,12 @@
                     <h2 class="text-center">Quizz</h2>
                 <div class="d-flex col-12">
                     <div class="col-6 text-left">
-                        <button onclick="window.location.href='/controllers/quizzCtrl.php?quizz='" class="btn"><span>Quizz 1</span></button>
-                        
-                        <button onclick="window.location.href='/controllers/quizzCtrl.php?quizz='" class="btn"><span>Quizz 2</span></button>
-                            
-                        <button onclick="window.location.href='/controllers/quizzCtrl.php?quizz='" class="btn"><span>Quizz 3</span></button>
 
-                        <button onclick="window.location.href='/controllers/quizzCtrl.php?quizz='" class="btn"><span>Quizz 4</span></button>
+                        <?php $i=0; foreach($allQuizzTitle as $quizz) { $i++; ?>
 
-                        <button onclick="window.location.href='/controllers/quizzCtrl.php?quizz='" class="btn"><span>Quizz 5</span></button>
+                        <button onclick="window.location.href='/controllers/quizzCtrl.php?id_quizz=<?=$quizz->id_quizz?>'" class="btn"><span>Quizz <?= $i  ?> : <?=$quizz->title?></span></button>
+
+                        <?php } ?>
                     </div>
 
                     <div class="col-6 text-right">

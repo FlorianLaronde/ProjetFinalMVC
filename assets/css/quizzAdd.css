@@ -42,7 +42,9 @@ body {
 /* Le contenu sur ma vidéo */
 #myVideo #contentOnVideo {
     z-index: 1;
-    margin-top: 10%;  
+    margin-top: 10%; 
+    margin-left: 18%;
+
 }
 
 /* Title */

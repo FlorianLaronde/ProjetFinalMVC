@@ -4,44 +4,47 @@ require_once(dirname(__FILE__).'/../utils/Database.php');
 
 class Questions {
 
-    private $_questionsQuizz;
+    private $_questionQuizz;
     private $_goodAnswers;
     private $_badAnswers1;
     private $_badAnswers2;
     private $_badAnswers3;
+    private $_id_quizz;
     private $_pdo;
 
 
-    public function __construct($questionsQuizz = NULL, $goodAnswers = NULL, $badAnswers1 = NULL, $badAnswers2 = NULL, $badAnswers3 = NULL) {
+    public function __construct($questionQuizz = NULL, $goodAnswers = NULL, $badAnswers1 = NULL, $badAnswers2 = NULL, $badAnswers3 = NULL, $id_quizz = NULL ) {
 
-        $this->_questionsQuizz = $questionsQuizz;
+        $this->_questionQuizz = $questionQuizz;
         $this->_goodAnswers = $goodAnswers;
         $this->_badAnswers1 = $badAnswers1;
         $this->_badAnswers2 = $badAnswers2;
         $this->_badAnswers3 = $badAnswers3;
+        $this->_id_quizz = $id_quizz;
         $this->_pdo = Database::getInstance();
         
     }
 
     // création des questions d'un quizz
-    public function createQuestions(){
+    public function createQuestions($questionQuizz,  $goodAnswers,  $badAnswers1,  $badAnswers2,  $badAnswers3, $id_quizz){
         try{
             $sql = 'INSERT INTO `questions` 
-                    (`questionsQuizz`, `goodAnswers`, `badAnswers1`, `badAnswers2`, `badAnswers3`)
-                    VALUES (:questionsQuizz, :goodAnswers, :badAnswers1, :badAnswers2, :badAnswers3);';
+                    (`questionQuizz`, `goodAnswers`, `badAnswers1`, `badAnswers2`, `badAnswers3`, `id_quizz`)
+                    VALUES (:questionQuizz, :goodAnswers, :badAnswers1, :badAnswers2, :badAnswers3, :id_quizz);';
             $stmt = $this->_pdo->prepare($sql);
-            $stmt->bindValue(':questionsQuizz', $this->_questionsQuizz, PDO::PARAM_STR);
-            $stmt->bindValue(':goodAnswers', $this->_goodAnswers, PDO::PARAM_BOOL);
-            $stmt->bindValue(':badAnswers1', $this->_badAnswers1, PDO::PARAM_BOOL);
-            $stmt->bindValue(':badAnswers2', $this->_badAnswers2, PDO::PARAM_BOOL);
-            $stmt->bindValue(':badAnswers3', $this->_badAnswers3, PDO::PARAM_BOOL);
+            $stmt->bindValue(':questionQuizz', $questionQuizz, PDO::PARAM_STR);
+            $stmt->bindValue(':goodAnswers', $goodAnswers, PDO::PARAM_STR);
+            $stmt->bindValue(':badAnswers1', $badAnswers1, PDO::PARAM_STR);
+            $stmt->bindValue(':badAnswers2', $badAnswers2, PDO::PARAM_STR);
+            $stmt->bindValue(':badAnswers3', $badAnswers3, PDO::PARAM_STR);
+            $stmt->bindValue(':id_quizz', $id_quizz, PDO::PARAM_INT);
             if($stmt->execute()){
                 return $this->_pdo;
             } else {
-                return false;
+                return 1;
             }
         } catch(PDOException $e){
-            return false;
+            return 2;
             
         }
     }

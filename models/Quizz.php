@@ -15,15 +15,16 @@ class Quizz {
     }
 
 
-
     public static function getAllQuizz(){
-        
+
         $pdo = Database::getInstance();
 
         try{
-            $sql = 'SELECT * FROM `quizz`';
+            $sql = 'SELECT * 
+                    FROM `quizz`
+                    ;';
             $stmt = $pdo->query($sql);
-            return($stmt->fetchAll());
+            return $stmt->fetchAll();
         }
         catch(PDOException $e){
             return false;
@@ -32,30 +33,41 @@ class Quizz {
     }
 
 
-    // set le title
-    public function setTtile($title){
-        $this->_title = $title;
-    }
 
-
-     // création d'un quizz
-     public function createQuizz(){
+    public function createQuizz($title, $id_quizzTheme, $id_users){
         try{
-            $sql = 'INSERT INTO `quizz` 
-                    (`title`)
-                    VALUES (:title);';
-            $stmt = $this->_pdo->prepare($sql);
-            $stmt->bindValue(':title', $this->_title, PDO::PARAM_STR);
-            if($stmt->execute()){
-                return $this->_pdo;
+            $sql = 'INSERT INTO `quizz` (`title`, `id_quizzTheme`, `id_users`) 
+                    VALUES (:title, :id_quizzTheme, :id_users);';
+            $sth = $this->_pdo->prepare($sql);
+            $sth->bindValue(':title',$title,PDO::PARAM_STR);
+            $sth->bindValue(':id_quizzTheme',$id_quizzTheme,PDO::PARAM_INT);
+            $sth->bindValue(':id_users',$id_users,PDO::PARAM_INT);
+
+            if($sth->execute()){
+                return $this->_pdo->lastInsertId();
             } else {
                 return false;
             }
-        } catch(PDOException $e){
-            return false;
-            
         }
+        catch(PDOException $e){
+            
+            return false;
+        }
+
     }
+
+
+     // Suppression d'un quizz selon un id
+     public function deleteQuizz($id){
+       $sql = 'DELETE from `quizz` WHERE `id_quizz` = :id;';
+       $stmt = $this->_pdo->prepare($sql);
+       $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+       if($stmt->execute()){
+           return $this->_pdo->lastInsertId();
+       } else {
+           return false;
+       }
+   }
 
 
 
