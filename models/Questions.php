@@ -51,13 +51,13 @@ class Questions {
 
 
      // Mise à jour d'une question selon un id
-     public function updateQuestions($id){
+     public function updateQuestion($id){
         try {
             $sql = 'UPDATE `questions` 
-                SET `questionsQuizz` = :questionsQuizz, `goodAnswers` = :goodAnswers, `badAnswers1` = :badAnswers1, `badAnswers2` = :badAnswers2, `badAnswers3` = :badAnswers3
+                SET `_questionQuizz` = :_questionQuizz, `goodAnswers` = :goodAnswers, `badAnswers1` = :badAnswers1, `badAnswers2` = :badAnswers2, `badAnswers3` = :badAnswers3
                 WHERE `questions`.`id` = :id;';
             $stmt = $this->_pdo->prepare($sql);
-            $stmt->bindValue(':questionsQuizz', $this->_questionsQuizz, PDO::PARAM_STR);
+            $stmt->bindValue(':_questionQuizz', $this->__questionQuizz, PDO::PARAM_STR);
             $stmt->bindValue(':goodAnswers', $this->_goodAnswers, PDO::PARAM_STR);
             $stmt->bindValue(':badAnswers1', $this->_badAnswers1, PDO::PARAM_STR);
             $stmt->bindValue(':badAnswers2', $this->_badAnswers2, PDO::PARAM_STR);
@@ -83,7 +83,7 @@ class Questions {
 
 
     // Récupération de toutes les infos d'une question selon un id
-    public static function getQuestions($id){
+    public static function getQuestion($id){
         
         $pdo = Database::getInstance();
     

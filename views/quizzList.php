@@ -1,12 +1,13 @@
     <!-- Fullscreen Video Background -->
     <div class="container" id="myVideo">
+        <div class="row">
             <!-- <video autoplay muted loop class="position-fixed">
                 <source src="/assets/img/BackgroundVideo/myVideo.mp4" type="video/mp4">
             </video> -->
             <!-- Contenu sur ma vidéo -->
                 <div class="col-12" id="contentOnVideo">
 
-                <h2 class="text-center">Quizz</h2>
+                    <h2 class="text-center">Quizz</h2>
 
                     <form action="" method="POST">
                         <table class="table mb-5">
@@ -14,8 +15,9 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Quizz</th>
+                                    <th scope="col">Modifier quizz</th>
                                     <th scope="col">Ajouter question(s)</th>
-                                    <th scope="col">Modifier</th>                      
+                                    <th scope="col">Modifier questions quizz</th>                      
                                     <th scope="col">Supprimer</th>
                                 </tr>
                             </thead>
@@ -25,11 +27,12 @@
                                     
                                     <tr>
                                         <th scope="row"><?=$i?></th>
-                                        <td><?=htmlentities($quizz->title)?>(<!-- <?php $recupQuizzTheme->themes ?> -->)</td>
+                                        <td><?=htmlentities($quizz->title)?>(<?= $quizz->themes ?>)</td>
+                                        <td class="text-center"><a href="/controllers/modifyQuizzCtrl.php?id_quizz=<?=$quizz->id_quizz?>"><i class="icon-cog"></i></a></td>
                                         <td class="text-center"><a href="/controllers/quizzAddQuestionCtrl.php?id_quizz=<?=$quizz->id_quizz?>"><i class="icon-plus"></i></a></td>
-                                        <td class="text-center"><a href="/controllers/quizzAddQuestionCtrl.php?id=<?=$quizz->title?>"><i class="icon-cogs"></i></a></td>
+                                        <td class="text-center"><a href="/controllers/modifyQuestionQuizzCtrl.php?id=<?=$quizz->title?>"><i class="icon-cogs"></i></a></td>
                                         <td>  <a href="/controllers/deleteQuizzCtrl.php?id_quizz=<?=htmlentities($quizz->id_quizz)?>" ><i class="icon-remove-sign"></i></a></td>
-                                    </tr> -->
+                                    </tr>
 
                                 <?php } ?>
 
@@ -46,4 +49,5 @@
                     </form>
       
             </div> 
+        </div>                          
     </div>

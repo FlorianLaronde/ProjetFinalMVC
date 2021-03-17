@@ -14,14 +14,15 @@ class Quizz {
         
     }
 
-
+    // Jointure pour : title(theme)
     public static function getAllQuizz(){
 
         $pdo = Database::getInstance();
 
         try{
             $sql = 'SELECT * 
-                    FROM `quizz`
+                    FROM `quizz`, `quizztheme`
+                    WHERE `quizz`.`id_quizzTheme` = `quizztheme`.`id_quizzTheme`
                     ;';
             $stmt = $pdo->query($sql);
             return $stmt->fetchAll();
@@ -68,6 +69,24 @@ class Quizz {
            return false;
        }
    }
+
+
+   // Mise à jour d'un quizz selon un id
+   public function updateQuizz($id){
+
+    try {
+        $sql = 'UPDATE `quizz` 
+            SET `title` = :title
+            WHERE `quizz`.`id_quizztheme` = :id;';
+        $stmt = $this->_pdo->prepare($sql);
+        $stmt->bindValue(':title', $this->_title, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        return ($stmt->execute());
+    } catch (PDOException $e) {
+        return false;
+    }
+    
+}
 
 
 

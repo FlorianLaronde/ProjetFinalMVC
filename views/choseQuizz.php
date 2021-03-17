@@ -13,7 +13,7 @@
 
                         <?php $i=0; foreach($allQuizzTitle as $quizz) { $i++; ?>
 
-                        <button onclick="window.location.href='/controllers/quizzCtrl.php?id_quizz=<?=$quizz->id_quizz?>'" class="btn"><span>Quizz <?= $i  ?> : <?=$quizz->title?></span></button>
+                        <button onclick="window.location.href='/controllers/quizzCtrl.php?id_quizz=<?=$quizz->id_quizz?>'" class="btn"><span>Quizz <?= $i  ?> : <?=$quizz->title ?> (<?= $quizz->themes ?>)</span></button>
 
                         <?php } ?>
                     </div>

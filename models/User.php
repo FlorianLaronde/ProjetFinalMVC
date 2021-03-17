@@ -157,20 +157,6 @@ class User {
     }
 
 
-    public function isAdmin($idUser){
-
-        $sql = 'SELECT * FROM `user` WHERE `id_users`= :id AND admin = 1';
-        $stmt = $this->_pdo->prepare($sql);
-        $stmt->bindValue(':id',$idUser, PDO::PARAM_INT);
-        $stmt->execute();
-        $item = $stmt->fetch(PDO::FETCH_OBJ);
-        if ($item){
-            return true;
-        } else {
-            return false;
-        }
-
-    }
 
 }
 
