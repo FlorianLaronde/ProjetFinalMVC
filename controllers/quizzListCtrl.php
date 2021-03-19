@@ -16,9 +16,6 @@ $recupQuizzTitle = $allQuizzTitle->getAllQuizz();
 // Récupération le thème du quizz
 $allQuizzTheme = new QuizzTheme();
 $recupQuizzTheme = $allQuizzTheme->getAll();
-var_dump($recupQuizzTheme);
-
-
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Nettoyage de l'id du rdv passé en GET dans l'url

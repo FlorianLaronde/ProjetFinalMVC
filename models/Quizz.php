@@ -6,10 +6,12 @@ class Quizz {
 
     private $_pdo;
     private $_title;
+    private $_id_quizzTheme;
     
-    public function __construct($title = NULL) {
+    public function __construct($title = NULL, $id_quizzTheme = NULL) {
 
         $this->_title = $title;
+        $this->_id_quizzTheme = $id_quizzTheme;
         $this->_pdo = Database::getInstance();
         
     }
@@ -76,11 +78,13 @@ class Quizz {
 
     try {
         $sql = 'UPDATE `quizz` 
-            SET `title` = :title
-            WHERE `quizz`.`id_quizztheme` = :id;';
+            SET `title` = :title, `id_quizztheme` = :id_quizztheme
+            WHERE `quizz`.`id_quizz` = :id;';
         $stmt = $this->_pdo->prepare($sql);
         $stmt->bindValue(':title', $this->_title, PDO::PARAM_STR);
+        $stmt->bindValue(':id_quizztheme', $this->_id_quizzTheme, PDO::PARAM_INT);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        
         return ($stmt->execute());
     } catch (PDOException $e) {
         return false;
@@ -88,6 +92,25 @@ class Quizz {
     
 }
 
+
+public static function get($id){
+        
+    $pdo = Database::getInstance();
+
+    try{
+        $sql = 'SELECT * FROM `quizz` 
+                WHERE `id_quizz` = :id;';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':id',$id,PDO::PARAM_INT);
+        $sth->execute();
+        return($sth->fetch());
+    }
+    catch(PDOException $e){
+        return false;
+    }
+    
+
+}
 
 
 

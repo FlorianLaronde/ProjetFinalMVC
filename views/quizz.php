@@ -5,34 +5,42 @@
                 <source src="/assets/img/BackgroundVideo/myVideo.mp4" type="video/mp4">
             </video>
             <!-- Contenu sur ma vidéo -->
-                <div id="contentOnVideo">
-                    <div class="col-12 border border-dark mt-5">
+            <div id="contentOnVideo">
+                <h3>Quizz</h3>
+                <form action="" method="POST">
 
-                        <h3 class="text-center">Quizz thème dynamique</h3>
-
-                        <div class="questionDiv">
-                            <p>Question : <strong>Dynamique</strong></p>
+                    <?php $i=0; foreach($recupAllQuestion as $question) { $i++; ?>
+                        <div>
+                            <h5> <?= $question->questionQuizz ?> </h5>
                         </div>
 
                         <div>
-                            <div class="d-flex">   
-                                    <a href="#" class="btn btn-info">Réponse A</a>
-                                
-                                    <a href="#" class="btn btn-info">Réponse B</a>
-                            
-                            </div>
-                            <div class="d-flex">
-                                    <a href="#" class="btn btn-info">Réponse C</a>
-        
-                                    <a href="#" class="btn btn-info">Réponse D</a>
-                            </div>
-
+                            <label for="asnwer1"> <?= $question->goodAnswers ?> </label>
+                            <input type="radio" id="asnwer1" name="answer<?=$i ?>" checked>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <a href="/controllers/quizzCtrl.php?=questions<?php ?> " type="submit" class="btn btn-info mt-5 mb-5">Valider ma réponse</a>
-                    </div>
-             
+
+                        <div>
+                            <label for="asnwer1"> <?= $question->badAnswers1 ?> </label>
+                            <input type="radio" id="asnwer1" name="answer<?= $i ?>" checked>
+                        </div>
+
+                        <div>
+                            <label for="asnwer1"> <?= $question->badAnswers2 ?> </label>
+                            <input type="radio" id="asnwer1" name="answer<?= $i ?>" checked>
+                        </div>
+
+                        <div>
+                            <label for="asnwer1"> <?= $question->badAnswers3 ?> </label>
+                            <input type="radio" id="asnwer1" name="answer<?= $i ?>" checked>
+                        </div>
+
+                    <?php } ?>
+
+                        <div>
+                            <a class="btn btn-info" type="submit" href="/controllers/quizzDoneCtrl.php">Valider mon questionnaire</a>
+                        </div>
+
+                </form>
             </div>
         </div>
     </div>

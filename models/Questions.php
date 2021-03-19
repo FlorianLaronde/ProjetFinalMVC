@@ -54,10 +54,10 @@ class Questions {
      public function updateQuestion($id){
         try {
             $sql = 'UPDATE `questions` 
-                SET `_questionQuizz` = :_questionQuizz, `goodAnswers` = :goodAnswers, `badAnswers1` = :badAnswers1, `badAnswers2` = :badAnswers2, `badAnswers3` = :badAnswers3
-                WHERE `questions`.`id` = :id;';
+                SET `questionQuizz` = :questionQuizz, `goodAnswers` = :goodAnswers, `badAnswers1` = :badAnswers1, `badAnswers2` = :badAnswers2, `badAnswers3` = :badAnswers3
+                WHERE `questions`.`id_questions` = :id;';
             $stmt = $this->_pdo->prepare($sql);
-            $stmt->bindValue(':_questionQuizz', $this->__questionQuizz, PDO::PARAM_STR);
+            $stmt->bindValue(':questionQuizz', $this->_questionQuizz, PDO::PARAM_STR);
             $stmt->bindValue(':goodAnswers', $this->_goodAnswers, PDO::PARAM_STR);
             $stmt->bindValue(':badAnswers1', $this->_badAnswers1, PDO::PARAM_STR);
             $stmt->bindValue(':badAnswers2', $this->_badAnswers2, PDO::PARAM_STR);
@@ -71,29 +71,32 @@ class Questions {
     }
 
 
-     // Suppression d'une question selon un id
-     public function deleteQuestions($id){
-        $sql = 'DELETE from `questions` WHERE `id` = :id;';
+      // Suppression d'un quizz selon un id
+      public function deleteQuestions($id){
+        $sql = 'DELETE from `questions` WHERE `id_questions` = :id;';
         $stmt = $this->_pdo->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        return ($stmt->execute());
+        if($stmt->execute()){
+            return $this->_pdo->lastInsertId();
+        } else {
+            return false;
+        }
     }
 
 
 
-
     // Récupération de toutes les infos d'une question selon un id
-    public static function getQuestion($id){
+    public function getQuestion($id){
         
-        $pdo = Database::getInstance();
-    
         try{
-            $sql = 'SELECT * FROM `questions` 
-                    WHERE `id` = :id;';
-            $sth = $pdo->prepare($sql);
-            $sth->bindValue(':id',$id,PDO::PARAM_INT);
-            $sth->execute();
-            return($sth->fetch());
+            $sql = 'SELECT * 
+                    FROM `quizz`, `questions` 
+                    WHERE `quizz` . `id_quizz`= `questions` . `id_quizz` 
+                    AND `questions` .`id_quizz` = :id;';
+            $stmt = $this->_pdo->prepare($sql);
+            $stmt->bindValue(':id',$id,PDO::PARAM_INT);
+            $stmt->execute();
+            return($stmt->fetchAll());
         }
         catch(PDOException $e){
             return false;
@@ -102,7 +105,7 @@ class Questions {
     }
     
     // Récupération de toutes les infos de toutes les questions
-    public function getAllQuestions($id){
+    public function getAllQuestions(){
         $sql = 'SELECT * from `questions`;';
         $stmt = $this->_pdo->query($sql);
         return ($stmt->fetchAll());

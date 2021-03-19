@@ -11,16 +11,16 @@
                 <div class="text-center">
                     <h2>Modifier title et theme quizz</h2>
 
-                        <form action="" method="POST">
+                    <form action="" method="POST">
                 
                             <div class="form-group">
                                 <label for="id_quizzTheme"></label>
                                 <select class="form-control mb-4" name="id_quizzTheme" id="id_quizzTheme" required>
                                     <option selected>Choisissez un thème du quizz</option>
 
-                                    <?php foreach($recupQuizzTitle as $newquizz) {?>
+                                    <?php foreach($allTheme as $theme) {?>
 
-                                    <option value="<?=$newquizz->id_quizzTheme?>">    <?=$newquizz->themes?></option>
+                                    <option value="<?=$theme->id_quizzTheme?>">    <?=$theme->themes?></option>
                                     
                                     <?php } ?>
 
@@ -30,19 +30,14 @@
 
                             <div class="form-group">
                                 <label for="title">Choisissez un titre</label>
-                                <input value="<?=$newquizz->title?>"  name="title" id="title" type="text" class="form-control" pattern="[A-Za-z-éèêëàâäôöûüç' ]+">
+                                <input value="<?=$quizzTitle?>"  name="title" id="title" type="text" class="form-control" pattern="[A-Za-z-éèêëàâäôöûüç' ]+">
                                 <div id="title_error" class="form-text"><?= $errorsArray['title_error'] ?? ''?></div>
                             </div>
-
-                    
-                                
-                            </div>
-
-
+        
+                        
                             <button class="btn btn-info" type="submit">Modifier mon titre</button>
-                  
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

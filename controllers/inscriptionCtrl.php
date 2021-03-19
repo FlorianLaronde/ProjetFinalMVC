@@ -10,16 +10,11 @@ $cssFile = 'inscription';
 $errorsArray = array();
 
 $admin = 0;
-//On ne controle que s'il y a des données envoyées 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    // PSEUDO
-    // On verifie l'existance et on nettoie
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pseudo = trim(filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES));
     
-    //On test si le champ n'est pas vide
     if(!empty($pseudo)){
-        // On test la valeur
         $testRegex = preg_match(REGEXP_PSEUDO,$pseudo);
 
         if($testRegex == false){
@@ -30,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     // ***************************************************************
-     // EMAIL
+
     $mail = trim(filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL));
 
     if(!empty($mail)){
@@ -58,9 +53,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $errorsArray['password_error'] = 'Les champs password sont obligatoires';
     }
 
-
- 
-     // si le tableau d'erreur est vide
     if(empty($errorsArray)){
         $user = new User();
         $user->setPseudo($pseudo);

@@ -10,12 +10,18 @@ require_once(dirname(__FILE__).'/../models/Quizztheme.php');
 $cssFile = 'quizzList';
 
 // Récupération le titre du quizz
-$allQuizzTitle = new Quizz();
-$recupQuizzTitle = $allQuizzTitle->getAllQuizz();
+$quizzTheme = new Quizztheme();
+$allTheme = $quizzTheme->getAll();
+
+$id_quizz = intval(trim(filter_input(INPUT_GET, 'id_quizz', FILTER_SANITIZE_NUMBER_INT)));
+
+$quizzTitle = Quizz::get($id_quizz)->title;
+
+
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $id = intval(trim(filter_input(INPUT_POST, 'id_quizzTheme', FILTER_SANITIZE_NUMBER_INT)));
+      $id_quizzTheme = intval(trim(filter_input(INPUT_POST, 'id_quizzTheme', FILTER_SANITIZE_NUMBER_INT)));
       if(empty($id)){
           $errorsArray['id_error'] = 'Erreur questionQuizz ';
       }
@@ -25,9 +31,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
           $errorsArray['title_error'] = 'Erreur questionQuizz ';
       }
 
-    $allQuizzTitle = new Quizz($title);
-    $result = $allQuizzTitle->updateQuizz($id);
-
+    $allQuizzTitle = new Quizz($title, $id_quizzTheme);
+    $result = $allQuizzTitle->updateQuizz($id_quizz);
     header('location: /controllers/quizzListCtrl.php');
 }
 

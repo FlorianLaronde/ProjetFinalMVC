@@ -22,17 +22,12 @@ $pseudo = $viewUser->pseudo;
 $mail = $viewUser->mail;
 /*************************************************************/
 
-//On ne controle que s'il y a des données envoyées 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    // Pseudo
     $pseudo = trim(filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES));
 
-    //On test si le champ n'est pas vide
     if(!empty($pseudo)){
-        // On test la valeur
         $testRegex = preg_match(REGEXP_STR_NO_NUMBER,$pseudo);
-
         if($testRegex == false){
             $errorsArray['pseudo_error'] = 'Merci de choisir un pseudo valide';
         }
@@ -40,11 +35,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $errorsArray['pseudo_error'] = 'Le champ est obligatoire';
     }
 
-    
-    // EMAIL
+    // **************************************************************
+
     $mail = trim(filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL));
 
-    //On test si le champ n'est pas vide
     if(!empty($mail)){
         $testMail = filter_var($mail, FILTER_VALIDATE_EMAIL);
         if($testMail == false){
@@ -61,8 +55,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $confirmPassword = $_POST['confirmPassword'];
     $verifyPassword = password_verify($lastPassword, $viewUser->password);
     $testRegexPassword = preg_match(REGEXP_PASS, $password);
-
-
 
     // ancien mdp vide
     if(!$lastPassword && ($password or $confirmPassword)) {
@@ -93,27 +85,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $result = $user->updateWithoutPassword($id);
 
         } else {
-            // hashage du password
             $password = password_hash($password, PASSWORD_DEFAULT);
             $user = new User($pseudo, $mail, $password);
-            // appel à la méthode update avec en paramètre l'id
             $result = $user->update($id);
         }
         header('location: /controllers/myAccountCtrl.php');
     }
-
-
-    // **************************************************************
-
-
     
 }
-
-
-
-
-
-
 
 include(dirname(__FILE__).'/../views/templates/header.php');    
 
