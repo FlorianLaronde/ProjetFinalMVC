@@ -105,11 +105,39 @@ class Questions {
     }
     
     // Récupération de toutes les infos de toutes les questions
-    public function getAllQuestions(){
-        $sql = 'SELECT * from `questions`;';
-        $stmt = $this->_pdo->query($sql);
-        return ($stmt->fetchAll());
+    public function getAllQuestion($id){
+        
+        try{
+            $sql = ' SELECT * from `questions`
+                    WHERE `id_questions` = :id;';
+            $stmt = $this->_pdo->prepare($sql);
+            $stmt->bindValue(':id',$id,PDO::PARAM_INT);
+            $stmt->execute();
+            return($stmt->fetch());
+        }
+        catch(PDOException $e){
+            return false;
+        }
+    
     }
+
+
+    public function recupAnswer($id){
+        
+        try{
+            $sql = ' SELECT `goodAnswers` from `questions`
+                    WHERE `id_quizz` = :id;';
+            $stmt = $this->_pdo->prepare($sql);
+            $stmt->bindValue(':id',$id,PDO::PARAM_INT);
+            $stmt->execute();
+            return($stmt->fetchAll());
+        }
+        catch(PDOException $e){
+            return false;
+        }
+    
+    }
+
 
   
 

@@ -8,26 +8,41 @@ require_once(dirname(__FILE__).'/../models/Questions.php');
 
 $cssFile = 'quizz';
 
-$id = intval(trim(filter_input(INPUT_GET, 'id_quizz', FILTER_SANITIZE_NUMBER_INT)));
+$id_quizz = intval(trim(filter_input(INPUT_GET, 'id_quizz', FILTER_SANITIZE_NUMBER_INT)));
+
 
 $allQuestion = new Questions();
-$recupAllQuestion = $allQuestion->getQuestion($id);
+$recupAllQuestion = $allQuestion->getQuestion($id_quizz);
 
-$recupAnswersUser = [];
+$recupAnswersUser = $allQuestion->recupAnswer($id_quizz);
+$goodAnswers = [count($recupAnswersUser)];
 
-$goodAsnwers = [$question->goodAnswers];
+$i=0; 
+foreach ($recupAnswersUser as $value) {
+    $goodAnswers[$i] = $value->goodAnswers;
+$i++;
+}
 
-$results = array_diff($recupAnswersUser, $goodAsnwers);
+
+
+
+
+
+
+
+
+
+
+
+// $results = array_diff($recupAnswersUser, $goodAsnwers);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     // réponse 
-    $answer1 = trim(filter_input(INPUT_POST, 'answer1', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES));
-    if(empty($answer1)){
-        $errorsArray['answer1_error'] = 'Erreur answer1';
-    }
-
-
-    if(empty($errorsArray)){ 
+    $answer = trim(filter_input(INPUT_POST, 'answer', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES));
+    var_dump($answer);
+    die;
+    if(empty($answer)){
+        $errorsArray['answer_error'] = ' answer';
 
     }
 

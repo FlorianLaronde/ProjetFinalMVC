@@ -4,11 +4,9 @@
             <source src="/assets/img/BackgroundVideo/myVideo3.mp4" type="video/mp4">
         </video>
         <!-- Contenu sur ma vidéo -->
-        <div id="contentOnVideo">
-            <h2>Classement</h2>
-            <div class="container">
-                <div class="row">
-                    <div class="table-responsive">
+        <div class="row" id="contentOnVideo">
+                    <div class="table-responsive col-12">
+                        <h2>Classement</h2>
                         <table class="table table-hover table-dark">
                             <thead>
                                 <tr > 
@@ -35,9 +33,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
-
-            </div>
+       
         </div>
     </div>
 

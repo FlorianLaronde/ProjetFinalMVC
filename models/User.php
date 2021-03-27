@@ -156,6 +156,24 @@ class User {
         return ($stmt->execute());
     }
 
+    // Méthode qui permet de compter les users
+    public static function count($s){
+        $pdo = Database::getInstance();
+        try{
+            $sql = 'SELECT * FROM `users`
+                WHERE `pseudo` LIKE :search 
+                OR `mail` LIKE :search;';
+
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':search','%'.$s.'%',PDO::PARAM_STR);
+            $stmt->execute();
+            return($stmt->rowCount());
+        }
+        catch(PDOException $e){
+            return 0;
+        }
+        
+    }
 
 
 }

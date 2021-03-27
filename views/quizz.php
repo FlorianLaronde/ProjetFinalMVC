@@ -15,23 +15,23 @@
                         </div>
 
                         <div>
-                            <label for="asnwer1"> <?= $question->goodAnswers ?> </label>
-                            <input type="radio" id="asnwer1" name="answer<?=$i ?>" checked>
+                            <label for="answer"> <?= $question->goodAnswers ?> </label>
+                            <input type="radio" id="answer" name="answer<?=$i ?>" value="<?= $i ?>" >
                         </div>
 
                         <div>
-                            <label for="asnwer1"> <?= $question->badAnswers1 ?> </label>
-                            <input type="radio" id="asnwer1" name="answer<?= $i ?>" checked>
+                            <label for="answer"> <?= $question->badAnswers1 ?> </label>
+                            <input type="radio" id="answer" name="answer<?= $i ?>" >
                         </div>
 
                         <div>
-                            <label for="asnwer1"> <?= $question->badAnswers2 ?> </label>
-                            <input type="radio" id="asnwer1" name="answer<?= $i ?>" checked>
+                            <label for="answer"> <?= $question->badAnswers2 ?> </label>
+                            <input type="radio" id="answer" name="answer<?= $i ?>" >
                         </div>
 
                         <div>
-                            <label for="asnwer1"> <?= $question->badAnswers3 ?> </label>
-                            <input type="radio" id="asnwer1" name="answer<?= $i ?>" checked>
+                            <label for="answer"> <?= $question->badAnswers3 ?> </label>
+                            <input type="radio" id="answer" name="answer<?= $i ?>" >
                         </div>
 
                     <?php } ?>

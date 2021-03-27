@@ -1,14 +1,14 @@
     <!-- Fullscreen Video Background -->
     <div class="container" id="myVideo">
-        <div class="row justify-content-center">
+        <div id="contentOnVideo" class="row justify-content-center">
             <video autoplay muted loop class="position-fixed">
                 <source src="/assets/img/BackgroundVideo/myVideo.mp4" type="video/mp4">
             </video>
             <!-- Contenu sur ma vidéo -->
-            <div class="col-12" id="contentOnVideo">
+            <div class="col-12">
                 <h2 class="text-center">Quizz</h2>
-                <div class="d-flex col-12">
-                    <div class="col-6 text-left">
+                
+                    <div>
 
                         <?php $i=0; foreach($allQuizzTitle as $quizz) { $i++; ?>
 
@@ -19,7 +19,7 @@
                         <button onclick="window.location.href='/controllers/quizzListCtrl.php'" class="btn mt-5 mb-5"><span>Créer un quizz</span></button>
                     </div>
 
-                </div>
+                
             </div>
         </div>
     </div>

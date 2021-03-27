@@ -8,25 +8,11 @@ require_once(dirname(__FILE__).'/../models/Questions.php');
 $cssFile = 'modifyQuestionQuizz';
 $errorsArray = [];
 
-$id_quizz = intval(trim(filter_input(INPUT_GET, 'id_quizz', FILTER_SANITIZE_NUMBER_INT)));
+$id_questions = intval(trim(filter_input(INPUT_GET, 'id_questions', FILTER_SANITIZE_NUMBER_INT)));
+
 
 $question = new Questions();
-$allQuestion = $question->getAllQuestions($id_quizz);
-var_dump($allQuestion);
-
-
-$questionQuizz = $allQuestion->questionQuizz;
-var_dump($questionQuizz);
-$answer1 = $allQuestion->answer1;
-var_dump($answer1);
-$answer2 = $allQuestion->answer2;
-var_dump($answer2);
-$answer3 = $allQuestion->answer3;
-var_dump($answer3);
-$answer4 = $allQuestion->answer4;
-var_dump($answer4);
-die;
-
+$allQuestion = $question->getAllQuestion($id_questions);
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -63,7 +49,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if(empty($errorsArray) ){
         $question = new Questions($questionQuizz, $answer1, $answer2, $answer3, $answer4);
-        $result = $question->updateQuestion($$id_quizz);
+        $result = $question->updateQuestion($id_questions);
+        // on récupère les dernières valeurs à afficher après la modif
+        $allQuestion = $question->getAllQuestion($id_questions);
+        
       }
 
 }

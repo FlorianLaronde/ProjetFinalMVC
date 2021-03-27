@@ -52,26 +52,15 @@ body {
 }
 
 
-/* Mes divs avec tout le contenu d'une grande ou sous partie */
-.divByPart {
-margin-top: 5%;
-margin-bottom: 5%;
-
-}
-
 .whiteDivs {
-    /* margin-top: 5%;
-    margin-bottom: 5%; */
-    background-color: black;
-    /* border: 10px double white; */
-    /* border-radius: 15px 15px 15px 15px; */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .whiteDivs p {
     color: white;
     font-size: 1.2rem; 
     opacity: 0.6;
-    mix-blend-mode: screen; 
+    /* mix-blend-mode: screen;  */
 }
 
 /* Title */
@@ -95,6 +84,7 @@ margin-bottom: 5%;
 
 /* Animation de mes paragraphes/photos de gauche à droite */
 .slideInLeft {
+    background-color: rgba(0, 0, 0, 0.5);
     -webkit-animation-name: slideInLeft;
     animation-name: slideInLeft;
     -webkit-animation-duration: 2s;
@@ -127,6 +117,7 @@ margin-bottom: 5%;
 
 /* Animation de mes paragraphes/photos de droite à gauche */
     .slideInRight {
+        background-color: rgba(0, 0, 0, 0.5);
         -webkit-animation-name: slideInRight;
         animation-name: slideInRight;
         -webkit-animation-duration: 2s;
@@ -235,17 +226,6 @@ margin-bottom: 5%;
     /* permet de modifier l'origine du repère pour les opérations de transformation d'un élément */
     transform: rotate(90deg);
 }
-
-
-/* ************************************************************************* */
-
-/* Caroussel */
-#myCaroussel {
-    height: 100%;
-}
-
-
-
 
 /* ********************************************************************************** */
 /* Footer */

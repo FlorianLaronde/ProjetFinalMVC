@@ -1,26 +1,25 @@
 <footer class="site-footer">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12 col-md-9">
+          <div class="col-sm-12 col-md-6">
             <h4>About</h4>
             <p class="text-justify">Merci à vous d'avoir pris du temps pour découvrir mon site et ses fonctionnalités, n'hésitez pas à le partager à des
                    personnes qui aiment ou s'intéressent à l'astronomie ou l'informatique. C'est mon premier "gros" projet réalisé,
                    le fait de le partager me permettrait de gagner en visibilité.</p>
           </div>
 
-          <div class="col-xs-6 col-md-3">
-               <h4>Langages utilisés</h4>
+          <div class="col-xs-6 col-md-6">
+               <h4>Mentions légales</h4>
+               <a target="_blank" href="/assets/CGU/CGU.pdf"><strong>Conditions générales d'utilisation</strong></a>
                <ul class="footer-links">
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>PHP</li>
-                  <li>Javascript</li>
-                  <li>MySQL</li>
+                  <li>Identité de l'éditeur du site : <strong>Florian Laronde</strong></li>
+                  <li>Coordonnées : <strong>13 rue Carpentier 80 000 Amiens</strong></li>
+                  <li>Informations me concernant : <strong>Futur développeur web junior en fin de formation</strong></li>
                </ul>
           </div>
         </div>
         <hr>
-      </div>
+     
       <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-6 col-xs-12">
@@ -29,9 +28,9 @@
 
             <div class="col-md-4 col-sm-6 col-xs-12">
                   <ul class="social-icons">
-                     <li><a class="facebook" target="_blank" href="https://fr-fr.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-                     <li><a class="twitter" target="_blank" href="https://twitter.com/home?lang=fr"><i class="fa fa-twitter"></i></a></li>
-                     <li><a class="linkedin" target="_blank" href="https://www.linkedin.com/in/florian-laronde-7311681b9/"><i class="fa fa-linkedin"></i></a></li>   
+                     <li><a class="facebook" target="_blank" href="https://fr-fr.facebook.com/"><i class="icon-facebook"></i></a></li>
+                     <li><a class="twitter" target="_blank" href="https://twitter.com/home?lang=fr"><i class="icon-twitter"></i></a></li>
+                     <li><a class="linkedin" target="_blank" href="https://www.linkedin.com/in/florian-laronde-7311681b9/"><i class="icon-linkedin"></i></a></li>   
                   </ul>
             </div>
         </div>

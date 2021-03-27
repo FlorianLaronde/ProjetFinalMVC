@@ -1,14 +1,14 @@
     <!-- Fullscreen Video Background -->
     <div class="container-fluid px-0" id="myVideo">
-        <div class="row">
+        <div id="contentOnVideo" class="row">
 
             <video autoplay muted loop class="position-fixed">
                 <source src="/assets/img/BackgroundVideo/myVideo3.mp4" type="video/mp4">
             </video>
             <!-- Contenu sur ma vidéo -->
-            <div id="contentOnVideo">
+            <div class="col-12">
                 <h2>Les dernières actualités</h2>
-                <div class="blog-card">
+                <div class="blog-card ">
                     <div class="meta">
                         <div class="photo" style="background-image: url(/assets/img/activities/perseverance.jpg)"></div>
                         <ul class="details">
@@ -17,9 +17,8 @@
                         </ul>
                     </div>
                     <div class="description">
-                        <h1>Mars 2020 (mission spatiale)</h1>
-                        <h2>Perseverance, le rover de la Nasa</h2>
-                        <p style="font-size:12px"> Mars 2020 est une mission spatiale d'exploration de la planète Mars développée par le JPL, établissement de l'agence spatiale
+                        <h3>Perseverance, le rover de la Nasa</h3>
+                        <p class="text-justify"> Mars 2020 est une mission spatiale d'exploration de la planète Mars développée par le JPL, établissement de l'agence spatiale
                             américaine (NASA). La mission consiste à déployer l'astromobile (rover) Perseverance sur le sol martien pour étudier sa surface.
                             Mars 2020 constitue la première d'une série de trois missions dont l'objectif final est de ramener des échantillons du sol martien
                             sur Terre pour permettre leur analyse. Ce projet, considéré comme prioritaire par la communauté scientifique depuis plusieurs
@@ -46,9 +45,8 @@
                         </ul>
                     </div>
                     <div class="description">
-                        <h1>Grande conjonction de Jupiter et Saturne</h1>
-                        <h2>Un événement astronomique rare et exceptionnel</h2>
-                        <p style="font-size:12px">Un phénomène astronomique connu sous le nom de « la grande conjonction », aura lieu le 21 décembre 2020 : Jupiter
+                        <h3>Grande conjonction de Jupiter et Saturne</h3>
+                        <p class="text-justify">Un phénomène astronomique connu sous le nom de « la grande conjonction », aura lieu le 21 décembre 2020 : Jupiter
                             et Saturne se rapprocheront sur la voûte céleste.C’est une opportunité pour les astronomes, amateurs comme
                             professionnels, d’observer deux des astres les plus lumineux de notre ciel nocturne dans le même champ de vision.
                             Ce n’est pas seulement un spectacle captivant, mais aussi un des moins fréquents. Le phénomène astronomique est 
@@ -76,9 +74,8 @@
                         </ul>
                     </div>
                     <div class="description">
-                        <h1>La fusion de trous noirs de masses très différentes</h1>
-                        <h2>Un évènement exceptionnel</h2>
-                        <p style="font-size:12px">C’était une première, annoncée le 20 avril : l’année précédente, une fusion entre deux trous noirs de masses sensiblement
+                        <h3>La fusion de trous noirs de masses très différentes</h3>
+                        <p class="text-justify">C’était une première, annoncée le 20 avril : l’année précédente, une fusion entre deux trous noirs de masses sensiblement
                             différentes a pu être observée grâce à un signal d’ondes gravitationnelles. D’un côté, un trou noir pesant environ 30 fois 
                             la masse du Soleil ; de l’autre, un trou noir « d’à peine » 8 masses solaires. La découverte de cet événement est importante, 
                             car il conforte les scientifiques dans l’idée que de tels systèmes de trous noirs avec des masses différentes pourraient être 

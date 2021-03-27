@@ -49,7 +49,7 @@
                         <div class="invalid-feedback">Confirmation nouveau mot de passe incorrect.</div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Modifier mon compte</button>
+                    <button type="submit" class="btn btn-outline-info mb-3">Modifier mon compte</button>
 
                 </form>
             </div>

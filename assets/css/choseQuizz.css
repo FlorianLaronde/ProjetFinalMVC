@@ -27,6 +27,7 @@ body {
     align-items: center;
 }
 
+
 /* Ma vidéo */
 #myVideo video {
     position: absolute;
@@ -76,7 +77,7 @@ h2 {
     transition: top 0.8s; 
 }
 
-#divInscriptionConnexion {
+/* #divInscriptionConnexion {
     position: absolute;
     top: 20%;
     right: 1%;
@@ -86,7 +87,7 @@ h2 {
 #divInscriptionConnexion ul li button {
     color: #DEE85E;
     text-shadow: 2px 2px 2px red, 0 0 1em blue, 0 0 0.2em blue;
-}
+} */
 
 /* Lien Navbar */
 #navbar a {
@@ -322,29 +323,9 @@ footer {
 
 /* Mes bouttons */
 
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
-
-body {
-	margin: 0;
-	height: 100%;
-	background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
-	background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-
-.description, .link {
-  font-family: 'Amatic SC', cursive;
-  text-align: center;
-}
-
-.description {
-	font-size: 35px;
-}
-
 .btn {
-  margin: 5%;
+  margin: 2% auto;
+  width: 80%;
   border: none;
   display: block;
   text-align: center;
@@ -355,10 +336,9 @@ body {
   position: relative;
   color: #fff;
   font-weight: 700;
-  font-size: 120%;
-  background-color: #222;
-  padding: 2% 10%;
-  /* margin: 0 auto; */
+  font-size: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1% 8%;
   box-shadow: 0 5px 15px rgba(0,0,0,0.20);
 }
 
@@ -373,7 +353,7 @@ body {
   left: 0;
   top: 0;
   height: 490%;
-  width: 140%;
+  width: 130%;
   background: #78c7d2;
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
@@ -386,12 +366,3 @@ body {
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
 
-.link {
-  font-size: 20px;
-  margin-top: 30px;
-}
-
-.link a {
-  color: #000;
-  font-size: 25px; 
-}

@@ -1,20 +1,20 @@
 
     <!-- Fullscreen Video Background -->
-    <div class="container-fluid px-0" id="myVideo">
-        <div class="row">
+    <div class="container-fluid" id="myVideo">
+        <div id="contentOnVideo" class="row">
 
             <video autoplay muted loop class="position-fixed">
                 <source src="/assets/img/BackgroundVideo/myVideo2.mp4" type="video/mp4">
             </video>
             <!-- Contenu sur ma vidéo -->
-            <div id="contentOnVideo">
-                <div class="card mt-5 mb-5">
-                    <h3 class="mt-1 mb-3">Mes informations personnelles</h3>
-                    <div style="text-transform: uppercase;" class="card-header"><?=htmlentities($user->pseudo)?></div>
+            <div class="col-12">
+                <div class="card mb-5">
+                    <h3 class="mt-1 mb-3">Mes informations personnelles sur mon compte</h3>
+                    <div class="card-header">Pseudo : <strong><?=htmlentities($user->pseudo)?></strong></div>
                     <div class="card-body">
-                        <p class="card-text">Adresse mail :<?=htmlentities($user->mail)?></p>
-                        <p class="card-text">Mot de passe : *************</p>
-                        <a href="/controllers/updateAccountCtrl.php" class="btn btn-info">Modifier</a>
+                        <p class="card-text u">Adresse mail : <strong><?=htmlentities($user->mail)?></strong></p>
+                        <p class="card-text">Mot de passe : <strong>*************</strong></p>
+                        <a href="/controllers/updateAccountCtrl.php" class="btn btn-outline-info">Modifier</a>
                     </div>
                 </div>
             </div>
