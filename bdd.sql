@@ -82,12 +82,12 @@ CREATE TABLE `quizz`(
 CREATE TABLE `results`(
         `id_results` Int  Auto_increment  NOT NULL ,
         `points`     Int NOT NULL ,
-        `id_users`   Int NOT NULL ,
-        `id_quizz`   Int NOT NULL
+        `nombreQuizz`     Int NOT NULL,
+        `id_users`   Int NOT NULL
 	,CONSTRAINT results_PK PRIMARY KEY (`id_results`)
 
 	,CONSTRAINT results_users_FK FOREIGN KEY (`id_users`) REFERENCES users(`id_users`)
-	,CONSTRAINT results_quizz0_FK FOREIGN KEY (`id_quizz`) REFERENCES quizz(`id_quizz`)
+
 )ENGINE=InnoDB;
 
 

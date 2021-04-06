@@ -8,6 +8,8 @@ require_once(dirname(__FILE__).'/../models/Questions.php');
 
 $cssFile = 'quizz';
 
+$errorsArray = [];
+
 $id_quizz = intval(trim(filter_input(INPUT_GET, 'id_quizz', FILTER_SANITIZE_NUMBER_INT)));
 
 
@@ -15,40 +17,28 @@ $allQuestion = new Questions();
 $recupAllQuestion = $allQuestion->getQuestion($id_quizz);
 
 $recupAnswersUser = $allQuestion->recupAnswer($id_quizz);
-$goodAnswers = [count($recupAnswersUser)];
+$goodAnswers = [];
 
-$i=0; 
-foreach ($recupAnswersUser as $value) {
-    $goodAnswers[$i] = $value->goodAnswers;
-$i++;
+// on vient récupérer les bonnes réponses de la table questions où l'on vient redéfinir sous un bon format pour avoir
+// accès aux valeurs de comparaison
+foreach ($recupAnswersUser as $key=>$value) {
+    $goodAnswers[$key] = $value['goodAnswers'];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// $results = array_diff($recupAnswersUser, $goodAsnwers);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     // réponse 
-    $answer = trim(filter_input(INPUT_POST, 'answer', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES));
-    var_dump($answer);
-    die;
-    if(empty($answer)){
-        $errorsArray['answer_error'] = ' answer';
+    $answer = $_POST['answer'];
+
+    if(count($answer)<=9) {
+        $errorsArray['erreur'] = 'erreur form' ;
+    } else {
+        $result = count(array_intersect($goodAnswers, $answer));
+        header('location: /controllers/quizzDoneCtrl.php?result='.$result.'');
 
     }
 
 }
 
-// var_dump($_POST);
 
 include(dirname(__FILE__).'/../views/templates/header.php');
 

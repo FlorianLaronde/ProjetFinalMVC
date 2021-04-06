@@ -112,9 +112,51 @@ public static function get($id){
 
 }
 
+  // Méthode qui permet de compter les users
+  public static function count($s){
+    $pdo = Database::getInstance();
+    try{
+        $sql = 'SELECT * FROM quizz, quizztheme 
+                WHERE quizz.id_quizzTheme = quizztheme.id_quizzTheme 
+                and ( title LIKE :search or themes LIKE :search  )';
 
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':search','%'.$s.'%',PDO::PARAM_STR);
+        $stmt->execute();
+        return($stmt->rowCount());
+    }
+    catch(PDOException $e){
+        return 0;
+    }
+    
+}
+
+
+
+  // Méthode qui permet de compter les users
+  public static function countValue($s){
+    $pdo = Database::getInstance();
+    try{
+        $sql = 'SELECT * FROM quizz, quizztheme 
+                WHERE quizz.id_quizzTheme = quizztheme.id_quizzTheme 
+                and ( title LIKE :search or themes LIKE :search  )';
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':search','%'.$s.'%',PDO::PARAM_STR);
+        $stmt->execute();
+        return($stmt->fetchAll());
+    }
+    catch(PDOException $e){
+        return 0;
+    }
+    
+}
 
   
 
 
 }
+
+
+
+

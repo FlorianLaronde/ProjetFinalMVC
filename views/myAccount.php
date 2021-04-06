@@ -1,10 +1,10 @@
 
     <!-- Fullscreen Video Background -->
     <div class="container-fluid" id="myVideo">
-        <div id="contentOnVideo" class="row">
+        <div id="contentOnVideo" class="row justify-center-center">
 
             <video autoplay muted loop class="position-fixed">
-                <source src="/assets/img/BackgroundVideo/myVideo2.mp4" type="video/mp4">
+                <source src="/assets/img/BackgroundVideo/myVideo1.mp4" type="video/mp4">
             </video>
             <!-- Contenu sur ma vidéo -->
             <div class="col-12">

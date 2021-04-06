@@ -28,6 +28,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 120px;
+    
+}
+
+@media screen and (max-width: 767px) {
+  #myVideo {
+    margin-top: 100px;
+  }  
+
 }
 
 /* Ma vidéo */
@@ -45,20 +54,18 @@ body {
 /* Le contenu sur ma vidéo */
 #myVideo #contentOnVideo {
     z-index: 1;
-    margin-top: 15%;
     text-align: center;
 }
 
 /* Title */
 h2 {
   font-size: 3.5vw;
-  text-shadow: 4px 4px 0px #3F7FBF;
   mix-blend-mode: screen;
   animation: fadeIn 2.5s linear forwards;
   margin: 0;
   padding: 0;
   text-transform: uppercase;
-  color: #bbb;
+  color: #DEE85E ;
 }
 
 @keyframes fadeIn {

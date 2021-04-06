@@ -21,17 +21,13 @@ body {
 /* Fullscreen Video Background */
 /* Div englobant ma video */
 #myVideo {
-    height: 100vh;
+    width: 100%;
+    /* height: 100vh; */
     /* Relative to 1% of the height of the viewport */
     overflow: hidden;
+    display: flex;
+    justify-content: center;
     align-items: center;
-}
-
-@media screen and (max-width: 767px) {
-  #myVideo {
-    margin-top: 80px;
-  }  
-
 }
 
 /* Ma vidéo */
@@ -48,18 +44,27 @@ body {
 
 /* Le contenu sur ma vidéo */
 #myVideo #contentOnVideo {
+    /* position: absolute; */
     z-index: 1;
-    margin-top: 8%;  
+    margin-top: 15%;
+    text-align: center;
+}
+
+#myVideo #contentOnVideo p {
+    font-size: 1.5rem;
+    color: #fff;
 }
 
 /* Title */
 h2 {
   font-size: 5vw;
+  text-shadow: 4px 4px 0px #3F7FBF;
   mix-blend-mode: screen;
   animation: fadeIn 2.5s linear forwards;
   margin: 0;
   padding: 0;
-  color:#DEE85E ;
+  text-transform: uppercase;
+  color: #bbb;
 }
 
 @keyframes fadeIn {
@@ -72,13 +77,25 @@ h2 {
     }
 }
 
-
 /* ****************************************************************** */
+
 /* Navbar */
 #navbar {
     height: auto;
     width: 100%;
     transition: top 0.8s; 
+}
+
+#divInscriptionConnexion {
+    position: absolute;
+    top: 20%;
+    right: 1%;
+    height: 60%;
+}
+
+#divInscriptionConnexion ul li button {
+    color: #DEE85E;
+    text-shadow: 2px 2px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
 /* Lien Navbar */
@@ -96,14 +113,6 @@ h2 {
     transition-duration: 500ms;
 }
 
-.nav {
-  background-color: yellow;
-  border: 5px solid black;
-  margin: 100%;
-}
-
-/* *************************************************************** */
-
 /* Logo Horloge Navbar */
 /* Cadran horloge */
 /* Elle dirige le margin top de l'horloge et des liens  */
@@ -114,10 +123,10 @@ h2 {
     border-radius: 50%;
     position: relative;
     box-shadow:
-    0 0 0 4px rgba(0, 0, 0, 0.1),
-    inset 0 0 0 3px #EFEFEF,
-    inset 0 0 10px black,
-    0 0 10px rgba(0, 0, 0, 0.2);
+        0 0 0 4px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* inside horloge */
@@ -144,8 +153,34 @@ h2 {
     transform: rotate(90deg);
 }
 
+/* ****************************************************** */
 
-/* ********************************************************************************** */
+/* Formulaire */
+.form-group {
+    margin-top: 5% !important;
+}
+
+#contentVideoButton button {
+    width: 80% !important;
+}
+
+#contentVideoButton button:first-child {
+    margin-top: 10% !important;
+    margin-bottom: 5% !important;
+}
+
+
+/* Input formulaire */
+input:invalid {
+    border: 2px dashed red;
+  }
+  
+input:valid {
+    border: 1px solid black;
+  }
+
+
+  /* ********************************************************************************** */
 /* Footer */
 
 footer {
@@ -315,60 +350,3 @@ footer {
     font-weight:600
   }
 }
-
-
-/* ************************************************************************ */
-
-/* Mes bouttons */
-
-
-.btn {
-  margin: 2% auto;
-  width: 80%;
-  border: none;
-  display: block;
-  text-align: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  outline: none;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  font-weight: 700;
-  font-size: 60%;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 0.8% 8%;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.20);
-}
-
-.btnSearch {
-  width: auto;
-  text-align: left;
-  margin: 0;
-  font-size: 50%;
-}
-
-.btn span {
-  position: relative; 
-  z-index: 1;
-}
-
-.btn:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 490%;
-  width: 130%;
-  background: #78c7d2;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
-  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-  transform: translateX(-98%) translateY(-25%) rotate(45deg);
-}
-
-.btn:hover:after {
-  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  transform: translateX(-9%) translateY(-25%) rotate(45deg);
-}
-

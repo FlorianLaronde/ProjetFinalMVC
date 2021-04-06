@@ -23,6 +23,7 @@ $id_users = $_SESSION['id'];
 //On ne controle que s'il y a des données envoyées 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+
     $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES));
 
     
@@ -52,10 +53,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = $quizzTitle->createQuizz($title,$id_quizzTheme, $id_users);     
         header('location: /controllers/quizzListCtrl.php');
         
-
-     
-
-
         if($result===false){
             $errorsArray['register_error'] = 'Enregistrement impossible';
         }

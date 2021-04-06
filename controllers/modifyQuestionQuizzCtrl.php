@@ -12,6 +12,7 @@ $id_questions = intval(trim(filter_input(INPUT_GET, 'id_questions', FILTER_SANIT
 
 
 $question = new Questions();
+// 
 $allQuestion = $question->getAllQuestion($id_questions);
 
 
@@ -48,6 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     if(empty($errorsArray) ){
+        // on fait appelle au constructeur et on définit les paramètres de la classe
         $question = new Questions($questionQuizz, $answer1, $answer2, $answer3, $answer4);
         $result = $question->updateQuestion($id_questions);
         // on récupère les dernières valeurs à afficher après la modif

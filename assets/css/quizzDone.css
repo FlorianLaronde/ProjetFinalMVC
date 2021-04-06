@@ -27,6 +27,13 @@ body {
     align-items: center;
 }
 
+@media screen and (max-width: 767px) {
+  #myVideo {
+    margin-top: 80px;
+  }  
+
+}
+
 /* Ma vidéo */
 #myVideo video {
     position: absolute;

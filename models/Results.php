@@ -15,19 +15,40 @@ class Results {
         
     }
 
-    public function calculPoints() {
+
+    public static function calculPoints(){
+        $pdo = Database::getInstance();
         try{
-            $sql = 'INSERT INTO `results` (`points`) 
-                    VALUES (:points)';
-            
-            $sth = $this->_pdo->prepare($sql);
-            $sth->bindValue(':points',$this->_points,PDO::PARAM_STR);
- 
-            return $sth->execute();
+            $sql = 'SELECT * 
+                    FROM `results`
+                    ORDER BY `points` DESC';
+    
+            $stmt = $pdo->query($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
         }
         catch(PDOException $e){
-            return $e->getCode();
+            return 0;
         }
+        
     }
+
+    public function recupPseudoUser(){
+        
+        try{
+            $sql = 'SELECT * 
+                    FROM `users`, `results` 
+                    WHERE `users` . `id_users`= `results` . `id_users` 
+                    ORDER BY `points` DESC;';
+            $stmt = $this->_pdo->query($sql);
+            $stmt->execute();
+            return($stmt->fetchAll());
+        }
+        catch(PDOException $e){
+            return false;
+        }
+    
+    }
+
 
 }

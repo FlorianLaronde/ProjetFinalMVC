@@ -18,5 +18,7 @@ define('REGEXP_PSEUDO','/^[A-Za-z-éèêëàâäôöûüç0-9\-\.]+$/');
 
 define('REGEXP_PASS', '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/');
 
+define('NB_ELEMENTS_BY_PAGE', 5);
+
 
 ?>

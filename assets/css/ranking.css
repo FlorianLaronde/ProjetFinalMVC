@@ -30,6 +30,13 @@ body {
     align-items: center;
 }
 
+@media screen and (max-width: 767px) {
+  #myVideo {
+    margin-top: 80px;
+  }  
+
+}
+
 /* Ma vidéo */
 #myVideo video {
     position: absolute;
@@ -46,7 +53,7 @@ body {
 #myVideo #contentOnVideo {
     /* position: absolute; */
     z-index: 1;
-    margin-top: 15%;
+    margin-top: 8%;
     text-align: center;
 }
 
@@ -61,20 +68,16 @@ body {
 table {
     border:1px solid black;
     width: 80%;
-    height: 500px;
     margin-top: 2%;
+    padding-right: 50px;
 }
 
 tr {
     border: 1px solid black;
-    width: 5% ;
-    height: 5% ;
 }
 
 td {
     border:1px solid black;
-    width: 5% ;
-    height: 5% ;
 }
 
 th {
@@ -83,17 +86,20 @@ th {
     height: 5% ;
 }
 
+.table thead th {
+  /* vertical-align: bottom; */
+  vertical-align: top;
+}
+
 
 /* Title */
 h2 {
   font-size: 5vw;
-  text-shadow: 4px 4px 0px #3F7FBF;
   mix-blend-mode: screen;
   animation: fadeIn 2.5s linear forwards;
   margin: 0;
   padding: 0;
-  text-transform: uppercase;
-  color: #bbb;
+  color: #DEE85E ;
 }
 
 @keyframes fadeIn {

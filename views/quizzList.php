@@ -2,17 +2,17 @@
     <div class="container" id="myVideo">
         <div class="row">
             <video autoplay muted loop class="position-fixed">
-                <source src="/assets/img/BackgroundVideo/myVideo.mp4" type="video/mp4">
+                <source src="/assets/img/BackgroundVideo/myVideo3.mp4" type="video/mp4">
             </video>
             <!-- Contenu sur ma vidéo -->
                 <div class="col-12" id="contentOnVideo">
 
-                    <h2 class="text-center">Quizz</h2>
+                    <h2 class="text-center mt-3">Quizz</h2>
 
-                    <form action="" method="POST">
+                    <form class="mt-4" action="" method="POST">
                         <table class="table mb-5">
                             <thead>
-                                <tr>
+                                <tr class="text-center">
                                     <th scope="col">#</th>
                                     <th scope="col">Quizz</th>
                                     <th scope="col">Visualiser questions</th>
@@ -40,7 +40,7 @@
 
                                     <tr>
                                         <td></td>
-                                        <td> <a class="btn btn-info" type="button" href="/controllers/quizzAddCtrl.php">Créer un nouveau quizz</a></td>
+                                        <td> <a class="btn btn-outline-dark" type="button" href="/controllers/quizzAddCtrl.php">Créer un nouveau quizz</a></td>
                                     </tr>
                             </tfoot>
                         </table>

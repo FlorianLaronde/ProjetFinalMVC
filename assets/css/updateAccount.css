@@ -30,6 +30,13 @@ body {
     align-items: center;
 }
 
+@media screen and (max-width: 767px) {
+  #myVideo {
+    margin-top: 80px;
+  }  
+
+}
+
 /* Ma vidéo */
 #myVideo video {
     position: absolute;
@@ -58,13 +65,11 @@ body {
 /* Title */
 h2 {
   font-size: 5vw;
-  text-shadow: 4px 4px 0px #3F7FBF;
   mix-blend-mode: screen;
   animation: fadeIn 2.5s linear forwards;
   margin: 0;
   padding: 0;
-  text-transform: uppercase;
-  color: #bbb;
+  color: #DEE85E ;
 }
 
 @keyframes fadeIn {

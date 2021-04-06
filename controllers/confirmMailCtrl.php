@@ -1,11 +1,11 @@
 <?php 
+
 session_start();
 
-require_once dirname(__FILE__).'/../models/User.php';
-require_once dirname(__FILE__).'/../utils/regex.php';
+require_once(dirname(__FILE__).'/../utils/regex.php');
+require_once(dirname(__FILE__) . '/../models/User.php');
 
-$cssFile = 'connexion';
-$errorsArray = array();
+$cssFile = 'confirmMail';
 
 $mail = trim(filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL));
 
@@ -20,9 +20,7 @@ if(!empty($_POST['mail']) && !empty($_POST['password'])){
     if($user){
         $_SESSION['id'] = $user->id_users;
         $_SESSION['pseudo'] = $user->pseudo;
-        $_SESSION['admin'] = $user->admin;
-         header('location: /index.php');
-
+        header('location: /index.php');
     } else {
         $errorsArray['login_error'] = 'Votre login ou mot de passe n\'est pas reconnu';
     }
@@ -30,8 +28,6 @@ if(!empty($_POST['mail']) && !empty($_POST['password'])){
 
 include(dirname(__FILE__).'/../views/templates/header.php');
 
-    include(dirname(__FILE__). '/../views/connexion.php');
+    include(dirname(__FILE__). '/../views/confirmMail.php');
 
 include(dirname(__FILE__).'/../views/templates/footer.php');
-
-?>

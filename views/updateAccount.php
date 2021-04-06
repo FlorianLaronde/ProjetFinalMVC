@@ -4,7 +4,7 @@
         <div class="row">
 
             <video autoplay muted loop class="position-fixed">
-                <source src="/assets/img/BackgroundVideo/myVideo2.mp4" type="video/mp4">
+                <source src="/assets/img/BackgroundVideo/myVideo1.mp4" type="video/mp4">
             </video>
             <!-- Contenu sur ma vidéo -->
             <div id="contentOnVideo">

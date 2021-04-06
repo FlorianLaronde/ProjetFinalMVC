@@ -15,7 +15,7 @@ $allQuestion = new Questions();
 $recupQuestion = $allQuestion->getQuestion($id_quizz);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Nettoyage de l'id du rdv passé en GET dans l'url
+   
     $id = intval(trim(filter_input(INPUT_POST, 'id_questions', FILTER_SANITIZE_NUMBER_INT)));
 }
 

@@ -23,7 +23,7 @@ class User {
     }
 
   
-    // set le pseudo
+    // set le pseudo on définit quelque chose
     public function setPseudo($pseudo){
         $this->_pseudo = $pseudo;
     }
@@ -74,7 +74,6 @@ class User {
             $stmt->bindValue(':mail', $this->_mail, PDO::PARAM_STR);
             $stmt->bindValue(':password', $this->_password, PDO::PARAM_STR);
             $stmt->bindValue(':admin', $this->_admin, PDO::PARAM_BOOL);
-            // $stmt->bindValue(':userActif', $this->_userActif, PDO::PARAM_BOOL);
             if($stmt->execute()){
                 return $this->_pdo->lastInsertId();
             } else {
@@ -106,11 +105,12 @@ class User {
     }
 
     // Récupération de toutes les infos de tous les users
-    public function getAll($id){
+    public function getAll(){
         $sql = 'SELECT * from `users`;';
         $stmt = $this->_pdo->query($sql);
         return ($stmt->fetchAll());
     }
+
 
     // Mise à jour d'un user selon un id
     public function update($id){
@@ -156,21 +156,119 @@ class User {
         return ($stmt->execute());
     }
 
-    // Méthode qui permet de compter les users
-    public static function count($s){
-        $pdo = Database::getInstance();
-        try{
-            $sql = 'SELECT * FROM `users`
-                WHERE `pseudo` LIKE :search 
-                OR `mail` LIKE :search;';
 
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':search','%'.$s.'%',PDO::PARAM_STR);
-            $stmt->execute();
-            return($stmt->rowCount());
+
+
+    // Partie inscription par mail **************************************
+
+    public function confirmMail(){
+        try{
+            $sql = 'INSERT INTO `users` 
+                    (`key`, `confirm`)
+                    VALUES (:key, :confirm);';
+            $stmt = $this->_pdo->prepare($sql);
+            $stmt->bindValue(':key', $this->_key, PDO::PARAM_INT);
+            $stmt->bindValue(':confirm', $this->_confirm, PDO::PARAM_INT);
+            if($stmt->execute()){
+                return $this->_pdo->lastInsertId();
+            } else {
+                return false;
+            }
+        } catch(PDOException $e){
+            return false;
+            
+        }
+    }
+
+
+    // récupérer l'adresse mail d'un user
+    public static function getMail($mail){
+        
+        $pdo = Database::getInstance();
+
+        try{
+            $sql = 'SELECT * FROM `users` 
+                    WHERE `mail` = :mail;';
+            $sth = $pdo->prepare($sql);
+            $sth->bindValue(':mail',$mail,PDO::PARAM_INT);
+            $sth->execute();
+            return($sth->fetch());
         }
         catch(PDOException $e){
-            return 0;
+            return false;
+        }
+
+    }
+
+    // récupérer l'id et la clé d'un user 
+    // public static function getIdAndKeyUser($getIdUser, $getKeyUser){
+        
+    //     $pdo = Database::getInstance();
+
+    //     try{
+    //         $sql = 'SELECT * FROM `users` 
+    //                 WHERE `id_user` = :id; AND `key` = :key';
+    //         $sth = $pdo->prepare($sql);
+    //         $sth->bindValue(':getIdUser',$getIdUser,PDO::PARAM_INT);
+    //         $sth->bindValue(':getKeyUser',$getKeyUser,PDO::PARAM_INT);
+    //         $sth->execute();
+    //         return($sth->fetch());
+    //     }
+    //     catch(PDOException $e){
+    //         return false;
+    //     }
+
+    // }
+
+
+
+    public function updateMail($id){
+        try {
+            $sql = 'UPDATE `users` 
+                SET `confirm` = :confirm
+                WHERE `id_users` = :id;';
+            $stmt = $this->_pdo->prepare($sql);
+            $stmt->bindValue(':confirm', $this->_confirm, PDO::PARAM_INT);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            return ($stmt->execute());
+        } catch (PDOException $e) {
+            return $e;
+        }
+        
+    }
+
+
+    public function createPoints($id){
+        try{
+            $sql = 'INSERT INTO `results` 
+                    (`id_users`)
+                    VALUES (:id_users);';
+            $stmt = $this->_pdo->prepare($sql);
+            $stmt->bindValue(':id_users', $id, PDO::PARAM_INT);
+            if($stmt->execute()){
+                return $this->_pdo->lastInsertId();
+            } else {
+                return false;
+            }
+        } catch(PDOException $e){
+            return false;
+            
+        }
+    }
+
+
+    
+    public function updatePoint($point, $id){
+        try {
+                $sql = 'UPDATE `results` 
+                    SET `points` = :point + `points`, `nombreQuizz` = `nombreQuizz` + 1
+                    WHERE `id_users` = :id;';
+            $stmt = $this->_pdo->prepare($sql);
+            $stmt->bindValue(':point', $point, PDO::PARAM_INT);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            return ($stmt->execute());
+        } catch (PDOException $e) {
+            return $e;
         }
         
     }

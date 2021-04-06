@@ -5,7 +5,7 @@
 
         
             <video autoplay muted loop class="position-fixed">
-                <source src="/assets/img/BackgroundVideo/myVideo2.mp4" type="video/mp4">
+                <source src="/assets/img/BackgroundVideo/myVideo3.mp4" type="video/mp4">
             </video>
             <!-- Contenu sur ma vidéo -->
             <div class="col-8" id="contentOnVideo">
@@ -39,7 +39,7 @@
                         aria-describedby="inputGroupPrepend">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Ajouter une question</button>
+                    <button type="submit" class="btn btn-outline-dark mb-5">Ajouter une question</button>
 
                 </form>
             </div>

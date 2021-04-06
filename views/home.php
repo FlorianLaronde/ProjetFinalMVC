@@ -39,7 +39,7 @@
                   
 
                 <!-- Caroussel creation -->
-                <div class="carousel slide col-8" data-ride="carousel">
+                <div id="myCaroussel" class="carousel slide col-7" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <!-- On cible le nombre d'image -->
                             <li data-target="#myCaroussel" data-slide-to="0" class="active"></li>
@@ -50,7 +50,7 @@
                         <div id="myCaroussel" class="carousel-inner">
                             <div class="carousel-item active">
                                 <!-- Ajout des images dans le caroussel -->
-                                <img class="d-block w-100 img-thumbnail" src="/assets/img/Caroussel/TerreCaroussel.png "
+                                <img class="d-block  mx-auto w-100 img-thumbnail" src="/assets/img/Caroussel/TerreCaroussel.png "
                                     alt="Notre planète la Terre">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5 class="">Notre planète la Terre</h5>
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100 img-thumbnail" src="/assets/img/Caroussel/SiCaroussel.png"
+                                <img class="d-block  mx-auto w-100 img-thumbnail" src="/assets/img/Caroussel/SiCaroussel.png"
                                     alt="Notre Système Solaire">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Le système Solaire</h5>
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100 img-thumbnail"
+                                <img class="d-block  mx-auto w-100 img-thumbnail"
                                     src="/assets/img/Caroussel/VoixLactéeCaroussel.jpg"
                                     alt="La Voie Lactée notre galaxie">
                                 <div class="carousel-caption d-none d-md-block">
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item ">
-                                <img class="d-block w-100 img-thumbnail" src="/assets/img/Caroussel/UniversCaroussel.jpg"
+                                <img class="d-block  mx-auto w-100 img-thumbnail" src="/assets/img/Caroussel/UniversCaroussel.jpg"
                                     alt="L'Univers">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>L'Univers</h5>
@@ -157,7 +157,7 @@
                 trois enveloppes concentriques : le noyau, le manteau et la croûte. Sa surface est solide et composée
                 principalement de matériaux non volatils, généralement des roches silicatées et du fer métallique. Sa densité est
                 donc relativement élevée, comprise entre 4 et 5,7.
-                Le Système solaire possède quatre planètes telluriques : Mercure, Vénus, la Terre et Mars
+                Le Système solaire possède quatre planètes telluriques : Mercure, Vénus, la Terre et Mars.
                 Les planètes telluriques sont beaucoup plus petites que les planètes gazeuses mais ont une densité 
                 beaucoup plus élevée car elles sont composées de fer et de silicates. </p>
             </article>
@@ -166,11 +166,11 @@
             </div>
 
             <!-- Sous partie 2 -->
-            <div class="slideInLeft  px-5 py-5 col-12 col-lg-4 order-2 order-sm-1">
+            <div class="slideInLeft px-5 py-5 col-12 col-lg-4 order-2 order-sm-1 order-md-3">
                 <img class="img-fluid" src="/assets/img/home/planetesGazeuses.jpg" alt="Des planètes gazeuses">
             </div>
             <article class="slideInRight whiteDivs px-5 py-5 col-lg-8 col-12 order-1 order-sm-2">
-                <h3 class="text-right">2. Les planètes gazeuses</h3>
+                <h3 class="text-right">3. Les planètes gazeuses</h3>
                 <p class="text-jusitfy">Une planète géante gazeuse, souvent abrégée en géante gazeuse est une planète géante composée
                 essentiellement de gaz légers, c’est-à-dire d’hydrogène et d’hélium.
                 Le Système solaire possède deux planètes géantes gazeuses : Jupiter et Saturne.
@@ -181,8 +181,8 @@
             </article>
 
             <!-- Sous partie 3 -->
-            <article class="slideInLeft whiteDivs px-5 py-5 col-lg-8 col-12">
-                <h3>3. Les planètes naines</h3>
+            <article class="slideInLeft whiteDivs px-5 py-5 col-lg-8 col-12  ">
+                <h3>2. Les planètes naines</h3>
                 <p class="text-justify">Une planète naine, depuis la nouvelle définition de l'Union Astronomique Internationale d'août 2006, est un corps céleste en orbite 
                 autour du Soleil qui possède une masse suffisante pour que sa gravité l'emporte sur les forces de cohésion du corps solide et le 
                 maintienne en équilibre hydrostatique (sous une forme presque sphérique), qui n'est pas un satellite, mais qui n'a pas fait place 
@@ -223,14 +223,14 @@
                 Certains possèdent un ou plusieurs satellites d'astéroïde, on en connait 416 en 2020. Le plus grand d'entre eux est Cérès
                 avec un diamètre dépassant 900km. </p>
             </article>
-            <div class="slideInRight text-center  px-5 py-5 col-12 col-lg-4">
+            <div class="slideInRight text-center px-5 py-5 col-12 col-lg-4">
                 <img class="img-fluid" src="/assets/img/home/asteroides.jpg" alt="Un astéroïde">
             </div>
          
 
 
             <!-- Sous partie 2 -->
-            <div class="slideInLeft text-center  px-5 py-5 col-12 col-lg-4  order-2 order-sm-1">
+            <div class="slideInLeft text-center  px-5 py-5 col-12 col-lg-4  order-2 order-sm-1 order-md-3">
                 <img class="img-fluid" src="/assets/img/home/comete.jpg" alt="Une comète">
             </div>
             <article class="slideInRight whiteDivs px-5 py-5 col-lg-8 col-12  order-1 order-sm-2">
@@ -267,7 +267,7 @@
 
             <article class="whiteDivs px-5 py-5 col-12 order-3">
                 <p>La Galaxie est composée de plusieurs bras spiraux.
-                    <ul>
+                    <ul class="list">
                         <li>Bras de Persée</li>
                         <li>Bras de la règle et du Cygne</li>
                         <li>Bras Ecu-Croix</li>

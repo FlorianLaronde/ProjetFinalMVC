@@ -1,10 +1,10 @@
 
     <!-- Fullscreen Video Background -->
     <div class="container-fluid px-0" id="myVideo">
-        <div class="row">
+        <div class="row justify-content-center">
 
             <video autoplay muted loop class="position-fixed">
-                <source src="/assets/img/BackgroundVideo/myVideo2.mp4" type="video/mp4">
+                <source src="/assets/img/BackgroundVideo/myVideo3.mp4" type="video/mp4">
             </video>
             <!-- Contenu sur ma vidéo -->
             <div id="contentOnVideo">
@@ -42,7 +42,7 @@
                             </div>
 
 
-                            <button class="btn btn-info" type="submit">Créer mon quizz</button>
+                            <button class="btn btn-outline-dark" type="submit">Créer mon quizz</button>
                   
                     </form>
                 </div>

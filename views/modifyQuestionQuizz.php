@@ -5,13 +5,13 @@
 
         
             <video autoplay muted loop class="position-fixed">
-                <source src="/assets/img/BackgroundVideo/myVideo2.mp4" type="video/mp4">
+                <source src="/assets/img/BackgroundVideo/myVideo3.mp4" type="video/mp4">
             </video>
             <!-- Contenu sur ma vidéo -->
-            <div class="col-8" id="contentOnVideo">
+            <div class="col-10" id="contentOnVideo">
                 <form method="POST" action="">
 
-                        <h2 class="text-center" >Modifier les questions d'un quizz</h2>
+                        <h2 class="text-center" >Modifier des questions d'un quizz</h2>
                         <div class="form-group">
                             <label for="questionQuizz" class="form-label">Question 1</label>
                             <input type="text" value="<?= $allQuestion->questionQuizz ?? '' ?>" class="form-control" id="questionQuizz" name="questionQuizz">
@@ -41,7 +41,7 @@
                         </div>
 
 
-                    <button type="submit" class="btn btn-primary">Modifier une question</button>
+                    <button type="submit" class="btn btn-outline-dark mb-5">Modifier une question</button>
 
                 </form>
             </div>

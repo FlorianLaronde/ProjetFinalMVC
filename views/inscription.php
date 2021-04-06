@@ -40,8 +40,7 @@
                                 
                             </div>
                         <div id="contentVideoButton">
-                            <button class="btn btn-danger" type="reset">Annuler</button>
-                            <button class="btn btn-info" type="submit">Inscription</button>
+                            <button name="valider" class="btn btn-info" type="submit">Inscription</button>
                         </div>
                     </form>
                     <div id="contentVideo">
@@ -51,6 +50,7 @@
             </div>
         </div>
     </div>
+
 
 
 

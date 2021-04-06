@@ -7,10 +7,10 @@
         <div class="row" id="contentOnVideo">
                     <div class="table-responsive col-12">
                         <h2>Classement</h2>
-                        <table class="table table-hover table-dark">
+                        <table class="table table-striped table-dark">
                             <thead>
                                 <tr > 
-                                    <th scope="col">#</th>
+                                    <th scope="col-1">#</th>
                                     <th scope="col">Pseudo</th>
                                     <th scope="col">Nombre de quizz réalisés</th>
                                     <th scope="col">Points</th>
@@ -19,16 +19,22 @@
                             </thead>
                             <tbody>
 
-                            <?php foreach($players as $player) { ?>
-                                <tr style="cursor: zoom-in;" onclick="location.href='/controllers/profil-patientCtrl.php?id=<?= $player->id; ?>'">
-                                    <td> <?= $player->id; ?>   </td>
-                                    <td> <?= $player->lastname; ?> </td>
-                                    <td> <?= $player->firstname; ?> </td>
+                            <?php 
+                            $ranking = 1;
+                            $i = 0;
+                            foreach($players as $player) { ?>
+                            <!-- style="cursor: zoom-in;" onclick="location.href='/controllers/profil-patientCtrl.php?id=<?= $player->id; ?>'" -->
+                                <tr>                                
+                                    <td> <?= $player->id_users; ?>   </td>
+                                    <td> <?= $recupPseudo[$i]->pseudo; ?>   </td>
+                                    <td> <?= $player->nombreQuizz; ?>   </td>
                                     <td> <?= $player->points; ?> </td>
-                                    <td> <?= $player->phone; ?> </td>
+                                    <td> <?= $ranking; ?> </td>
+
                                 </tr>
 
-                            <?php } ?>
+                            <?php $ranking++; $i++;
+                             } ?>
 
                             </tbody>
                         </table>
